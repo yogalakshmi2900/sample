@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {AC_LIST_DATA} from '../action/countriesaction';
-import {Link } from "react-router-dom";
+
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
       this.search=this.search.bind(this);
     }
     onChangeValue(event){
-        const name  = event.target.name;
+//         const name  = event.target.name;
         const value = event.target.value;
         this.setState({search:value});
         document.body.style.backgroundColor="none";
@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
     }
     search() {
 	     let searched = this.state.search;
-       if (searched != "") {
+       if (searched !== "") {
   	   let text = document.getElementById("text").innerHTML;
   	   let re = new RegExp(searched,"gi");
 		   let newText = text.replace(re, `<mark style="background-color:yellow;" >${searched}</mark>`);
@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
       const arr = [];
       var flag = [];
       for(var i=0;i<List.length;i++){
-        flag.push(<img src={List[i].flag} style={{width:"50px",height:"30px"}}></img>);
+        flag.push(<img src={List[i].flag} alt="noimage" style={{width:"50px",height:"30px"}}></img>);
         arr.push(
             <div className="col-12 grid-margin">
               <div className="card">
